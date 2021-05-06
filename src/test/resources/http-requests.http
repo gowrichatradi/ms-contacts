@@ -1,0 +1,39 @@
+### get all contact numbers
+GET http://localhost:8080/v1/contacts
+Authorization: Basic belong noBelong
+
+### get all customers
+GET http://localhost:8080/v1/customers
+Authorization: Basic belong noBelong
+
+
+### get contact of a customer
+GET http://localhost:8080/v1/customers/1
+Authorization: Basic belong noBelong
+
+
+### activate phone number
+POST http://localhost:8080/v1/contacts/activate
+Authorization: Basic belong noBelong
+Content-Type: application/json
+
+{
+  "PhoneActivationRequest": {
+    "id": 1,
+    "customerName": "Gowri Sanker",
+    "phoneNumber": "0407789895"
+  }
+}
+
+
+### should fail with error
+POST http://localhost:8080/v1/contacts/activate
+Authorization: Basic belong noBelong
+Content-Type: application/json
+
+{
+  "PhoneActivationRequest": {
+    "customerName": "Gowri Sanker",
+    "phoneNumber": "0407789895"
+  }
+}
